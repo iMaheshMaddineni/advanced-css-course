@@ -1,0 +1,41 @@
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(2rem);
+    color: red;
+  }
+  100% {
+    color: #fff;
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-2rem);
+    transform: translateX(-2rem);
+    color: red;
+  }
+  80% {
+    color: #fff;
+    transform: translate(1rem);
+  }
+}
+
+@keyframes btnAfter {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+  }
+}

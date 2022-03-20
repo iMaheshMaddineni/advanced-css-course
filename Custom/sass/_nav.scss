@@ -1,0 +1,119 @@
+.navigation-section {
+  // overflow-x: hidden;
+  input {
+    display: none;
+  }
+  .nav-label {
+    background-color: $color-white;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 100px;
+    position: fixed;
+    top: 5.5rem;
+    right: 4rem;
+    z-index: 7;
+    text-align: center;
+
+    .nav-icon {
+      &,
+      &::before,
+      &::after {
+        display: inline-block;
+        width: 3rem;
+        height: 2px;
+        margin-top: 2.7rem;
+        background-color: $color-black;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        left: 15px;
+        content: "";
+      }
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+    }
+  }
+  .nav-background {
+    position: fixed;
+    top: 6rem;
+    right: 5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100px;
+    transition: all 1s;
+    background-image: radial-gradient(
+      rgba($color-primary-light, 1),
+      rgba($color-primary-dark, 1)
+    );
+    z-index: 5;
+  }
+
+  .navigation {
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+
+    transition: all 5s;
+    // transform: translateX(100%);
+    // z-index: 4;
+
+    &-list {
+      list-style: none;
+      font-size: 3.2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &-item {
+        a:link,
+        a:visited {
+          padding: 0.5rem;
+          display: block;
+          text-decoration: none;
+          color: $color-white;
+          background-image: linear-gradient(
+            120deg,
+            transparent 0%,
+            transparent 50%,
+            $color-white 50%
+          );
+          background-size: 230%;
+          transition: all 0.5s;
+        }
+        a:hover,
+        a:active {
+          color: $color-primary;
+          background-position: 100%;
+        }
+      }
+    }
+  }
+
+  input:checked ~ .navigation {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 6;
+  }
+  input:checked ~ .nav-background {
+    transform: scale(100);
+  }
+  input:checked + .nav-label > .nav-icon {
+    background-color: transparent;
+  }
+  input:checked + .nav-label > .nav-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  input:checked + .nav-label > .nav-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}

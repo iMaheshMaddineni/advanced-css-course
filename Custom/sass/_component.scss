@@ -1,0 +1,412 @@
+.btn {
+  &:link,
+  &:visited {
+    font-size: 1.6rem;
+    color: $color-gray-dark;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: $color-white;
+    display: inline-block;
+    padding: 1.2rem;
+    border-radius: 2.5rem;
+    text-align: center;
+    position: relative;
+
+    animation-name: moveRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+
+    transition: all 0.5s ease-in-out;
+  }
+  &:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.2);
+  }
+  &:active {
+    transform: translateY(0.5rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+  &:link:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: $color-white;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 2.5rem;
+
+    transition: all 0.5s;
+  }
+
+  &:hover:after {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(img/hero.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  clip-path: polygon(0% 0, 100% 0, 100% 75vh, 0 100%);
+
+  @include respond(tab-port) {
+    clip-path: polygon(0% 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  position: relative;
+
+  .logo-box {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+  }
+  .logo {
+    height: 3.5rem;
+  }
+}
+
+.header-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .heading-primary {
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
+    line-height: 1.5;
+
+    animation-name: moveIn;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+
+    .primary-main {
+      letter-spacing: 4rem;
+      font-size: 3.5rem;
+      font-weight: 500;
+      display: block;
+    }
+    .primary-sub {
+      font-size: 1rem;
+      letter-spacing: 1.5rem;
+      display: block;
+    }
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    color: $color-primary;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px;
+    border-bottom: 1px solid $color-primary;
+
+    transition: all 0.5s;
+  }
+  &:hover,
+  &:active {
+    color: $color-white;
+    background-color: $color-primary-light;
+  }
+}
+
+.composition {
+  position: relative;
+  @include respond(tab-port) {
+    z-index: 2;
+  }
+  &__photo {
+    width: 55%;
+
+    @include respond(tab-port) {
+      width: 65%;
+    }
+    @include respond(phone) {
+      width: 65%;
+    }
+    box-shadow: 0 2px 10px rgba($color-black, 0.2);
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s;
+    outline-offset: 1.5em;
+
+    &--p1 {
+      top: 0;
+      left: 0;
+    }
+    &--p2 {
+      top: 4rem;
+      left: 20rem;
+      @include respond(tab-port) {
+        left: 10rem;
+      }
+    }
+    &--p3 {
+      top: 10rem;
+      left: 8rem;
+      @include respond(tab-port) {
+        left: 2rem;
+      }
+    }
+
+    &:hover {
+      z-index: 2;
+      outline: 1rem solid $color-primary;
+      transform: translateY(-0.5rem);
+      box-shadow: 0 4rem 1rem rgba($color-black, 0.5);
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.9);
+  }
+}
+
+.icon {
+  display: block;
+  padding: 2.4rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary, 0.8),
+    rgba($color-primary-dark, 0.8)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.feature-box {
+  background-color: $color-white;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1.8rem;
+  border-radius: 4px;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+  transition: all 0.5s;
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.05);
+    box-shadow: 0 2rem 2rem rgba($color-black, 0.5);
+  }
+}
+
+.tour {
+  perspective: 150rem;
+  position: relative;
+  height: 40rem;
+
+  &__side {
+    transition: all 0.8s ease;
+    color: #fff;
+    font-size: 1.6rem;
+    height: 40rem;
+    width: 80%;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2rem 3rem rgba($color-black, 0.2);
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.5),
+          rgba($color-primary-dark, 0.5)
+        );
+      }
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.5),
+          rgba($color-secondary-dark, 0.5)
+        );
+      }
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.5),
+          rgba($color-tertiary-dark, 0.5)
+        );
+      }
+
+      .tour--cta {
+        position: absolute;
+        top: 15rem;
+        left: 10rem;
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &-picture {
+    background-size: cover;
+    height: 20rem;
+    background-position: top;
+    background-blend-mode: soft-light;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    &-1 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.5),
+          rgba($color-primary-dark, 0.5)
+        ),
+        url(./img/nat-5.jpg);
+    }
+    &-2 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.5),
+          rgba($color-primary-dark, 0.5)
+        ),
+        url(./img/nat-6.jpg);
+    }
+    &-3 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.5),
+          rgba($color-primary-dark, 0.5)
+        ),
+        url(./img/nat-7.jpg);
+    }
+  }
+
+  &-heading {
+    line-height: 1;
+    text-align: right;
+    width: 45%;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+    background-color: $color-primary;
+    text-transform: uppercase;
+  }
+
+  &-heading-span {
+    padding: 3px;
+    -webkit-box-decoration-break: clone;
+  }
+
+  &-list {
+    color: $color-gray-dark;
+
+    & .list {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+      list-style: none;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 500;
+
+      li {
+        padding: 5px;
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-dark;
+        }
+      }
+    }
+  }
+}
+
+.story {
+  width: 75%;
+  @include respond(tab-port) {
+    width: 100%;
+  }
+  background-color: $color-white;
+  box-shadow: 0 2rem 5rem rgba($color-black, 0.2);
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: 5rem;
+  transform: skewX(-10deg);
+
+  & > * {
+    transform: skewX(10deg);
+  }
+
+  &__image-box {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-black;
+    transform: translateX(-1rem) skewX(10deg);
+
+    float: left;
+    shape-outside: circle(50%);
+    clip-path: circle(50% at 50% 50%);
+
+    &-img {
+      height: 100%;
+      backface-visibility: hidden;
+      transform: translate(-2rem, -1rem);
+      transition: all 0.3s;
+    }
+    &-caption {
+      font-size: 1.6rem;
+      color: $color-white;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%, 50%);
+      opacity: 0;
+      transition: all 0.3s;
+      backface-visibility: hidden;
+    }
+  }
+
+  &__des-box {
+    padding-top: 1.2rem;
+  }
+  &:hover {
+    .story__image-box-img {
+      filter: blur(2px);
+    }
+    .story__image-box-caption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.submit {
+  font-size: 1.6rem;
+  color: $color-gray-dark;
+  padding: 1rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,18 @@
+@import "respond";
+@import "variables";
+
+@import "base";
+@import "animations";
+@import "mixin";
+@import "utility";
+@import "component";
+@import "typography";
+@import "layout";
+@import "home";
+@import "nav";
+@import "model";
+
+.discover {
+  text-align: center;
+  margin-top: 2.4rem;
+}

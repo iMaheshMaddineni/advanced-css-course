@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(desktop) {
+    font-size: 75%; // 50% of 16px
+  }
+  @include respond(tab-land) {
+    font-size: 56.25%; // 56.25% of 16px = 9
+  }
+  @include respond(tab-port) {
+    font-size: 50%; // 50% of 16px = 8
+  }
+  @include respond(phone) {
+    font-size: 50%;
+  }
+
+  @media screen and (min-resolution: 190dpi) {
+  }
+}
+body {
+  padding: 3rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

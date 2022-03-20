@@ -1,0 +1,44 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-gray-dark;
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.5s;
+
+  background-image: linear-gradient(
+    to right,
+    rgba($color-primary-light, 1),
+    rgba($color-primary-dark, 1)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+
+  &:hover {
+    transform: skewX(20deg) skewY(5deg);
+    text-shadow: 0.5rem 1rem 10px rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

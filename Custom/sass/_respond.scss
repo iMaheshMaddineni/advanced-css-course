@@ -1,0 +1,23 @@
+@mixin respond($target) {
+  @if $target == desktop {
+    @media (max-width: 112.5em) {
+      @content;
+    }
+  }
+  @if $target == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $target == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $target == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+}
